@@ -1,0 +1,3 @@
+[build]
+  publish = "remote-workshop"
+  command = ""

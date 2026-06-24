@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>職涯價值觀遠端工作坊</title>
+    <link rel="stylesheet" href="./styles.css?v=6" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <p class="eyebrow">Career Values Card Table</p>
+          <h1>職涯價值觀遠端牌桌</h1>
+        </div>
+        <div class="topbar-actions">
+          <div class="stage-switch" role="group" aria-label="工作坊階段">
+            <button id="stageOneButton" type="button">第一階段</button>
+            <button id="stageTwoButton" type="button">第二階段</button>
+          </div>
+          <button class="ghost-button" id="copySummaryButton" type="button">複製摘要</button>
+          <button class="ghost-button" id="downloadButton" type="button">下載紀錄</button>
+          <button class="ghost-button" id="sidebarToggle" type="button">側欄</button>
+        </div>
+      </header>
+
+      <main class="table-layout">
+        <section class="card-table" aria-label="價值卡牌桌">
+          <div class="table-felt">
+            <div class="table-header">
+              <div>
+                <p class="eyebrow" id="stageMeta">Stage 1 / choose 5</p>
+                <h2 id="stageTitle">從牌庫拖 5 張到選擇區</h2>
+              </div>
+              <p id="stageHint">先用直覺選，不急著解釋。選滿 5 張後，在選擇區拖曳排序。</p>
+            </div>
+
+            <section class="play-area">
+              <div class="card-bank-zone">
+                <div class="zone-heading">
+                  <h3>牌庫</h3>
+                  <span id="deckCount">15 張</span>
+                </div>
+                <div class="card-bank" id="cardBank"></div>
+              </div>
+
+              <div class="selection-zone drop-zone" id="selectedZone" data-zone="selected">
+                <div class="zone-heading">
+                  <h3 id="selectedZoneTitle">選擇區</h3>
+                  <span id="selectedCount">0 / 5</span>
+                </div>
+                <div class="rank-track" id="selectedTrack"></div>
+              </div>
+
+              <div class="removed-zone drop-zone" id="removedZone" data-zone="removed">
+                <div class="zone-heading">
+                  <h3>第二階段淘汰區</h3>
+                  <span id="removedCount">0 / 2</span>
+                </div>
+                <div class="removed-track" id="removedTrack"></div>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <aside class="side-drawer" id="sideDrawer" aria-label="工作坊側欄">
+          <section class="drawer-section">
+            <div class="section-heading">
+              <h2>場次</h2>
+              <button class="danger-button" id="resetButton" type="button">重置</button>
+            </div>
+            <label>
+              場次名稱
+              <input id="sessionTitle" type="text" placeholder="例：2026/06 職涯價值探索" />
+            </label>
+            <label>
+              參與者代稱
+              <input id="participantAlias" type="text" placeholder="例：A、個案 01" />
+            </label>
+            <label>
+              本次目標
+              <textarea id="sessionGoal" rows="4" placeholder="今天想釐清的職涯選擇、困惑或決策情境"></textarea>
+            </label>
+          </section>
+
+          <section class="drawer-section">
+            <div class="section-heading">
+              <h2>引導問題</h2>
+              <span id="promptStageLabel">Stage 1</span>
+            </div>
+            <div class="prompt-list" id="promptList"></div>
+          </section>
+
+          <section class="drawer-section">
+            <div class="section-heading">
+              <h2>紀錄</h2>
+              <button id="addNoteButton" type="button">新增</button>
+            </div>
+            <label>
+              類型
+              <select id="noteType">
+                <option value="expression">個案明確表達</option>
+                <option value="observation">主持人觀察</option>
+                <option value="hypothesis">主持人推測</option>
+                <option value="insight">共同洞察</option>
+              </select>
+            </label>
+            <label>
+              內容
+              <textarea id="noteText" rows="4" placeholder="保留原話、觀察、推測或共同產生的理解"></textarea>
+            </label>
+            <div class="note-board" id="noteBoard"></div>
+          </section>
+
+          <section class="drawer-section">
+            <div class="section-heading">
+              <h2>輸出摘要</h2>
+              <button id="refreshSummaryButton" type="button">更新</button>
+            </div>
+            <textarea id="summaryOutput" rows="14" readonly></textarea>
+          </section>
+        </aside>
+      </main>
+    </div>
+
+    <script src="./app.js?v=6"></script>
+  </body>
+</html>
